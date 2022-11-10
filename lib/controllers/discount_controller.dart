@@ -6,7 +6,7 @@ import '../data/repository/products_repo.dart';
 class DiscountController extends GetxController {
   final DiscountRepo discountRepo = DiscountRepo();
 
-  List discountsList = [];
+  List<ProductModel> discountsList = [];
   bool isDiscount = false;
   // List<CategoriesModel> categoriesList = [];
 
@@ -22,10 +22,13 @@ class DiscountController extends GetxController {
   Future<void> getDiscountsList() async {
     var response = await discountRepo.getDiscounts();
     if (response['status'] == "success") {
-      discountsList.addAll(response['discouts']);
-      // productsList.add(ProductModel.fromJson(response.body).products);
+      response['discouts'].forEach((v) {
+        discountsList.add(ProductModel.fromJson(v));
+      });
+      if (discountsList.length > 0) {
+        isDiscount = true;
+      }
       _isloaded = true;
-      isDiscount = true;
       update();
     } else {
       print("Error occurred and the error is ");

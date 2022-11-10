@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/view/categories.page/categories_page.dart';
 import 'package:e_commerce_app/view/home.pages/body_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

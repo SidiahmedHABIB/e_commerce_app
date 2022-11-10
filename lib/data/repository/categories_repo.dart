@@ -10,4 +10,10 @@ class CategoriesRepo {
     var response = await crud.postRequest(AppConstants.CATEGORIES_URI, {});
     return response;
   }
+
+  Future getCategoriesByIndex(String index) async {
+    var response = await crud
+        .postRequest(AppConstants.CATEGORIES_BY_INDEX_URI, {"index": index});
+    return response;
+  }
 }

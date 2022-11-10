@@ -11,6 +11,8 @@ class AppConstants {
   // categories
   static const String CATEGORIES_URI =
       "$BASE_URL/categories/get_categories.php";
+  static const String CATEGORIES_BY_INDEX_URI =
+      "$BASE_URL/categories/category_by_index.php";
 
   // products
   static const String PRODUCTS_URI = "$BASE_URL/products/get_products.php";

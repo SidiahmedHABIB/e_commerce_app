@@ -37,10 +37,13 @@ class _BodyHomePageState extends State<BodyHomePage> {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return CategoryCardWidget(
+                      index: int.parse(controller
+                          .categoriesList[index].categoriesId
+                          .toString()),
                       imageCtg:
-                          "${AppConstants.ASSETS_CATEGORIES + controller.categoriesList[index]['categories_image']}",
+                          "${AppConstants.ASSETS_CATEGORIES + controller.categoriesList[index].categoriesImage.toString()}",
                       textCtg:
-                          "${controller.categoriesList[index]['categories_name']}");
+                          "${controller.categoriesList[index].categoriesName}");
                 },
                 separatorBuilder: (BuildContext context, int index) {
                   return SizedBox(
@@ -70,7 +73,7 @@ class _BodyHomePageState extends State<BodyHomePage> {
                         ],
                       ),
 
-                      // section headphones carts
+                      // section Discounts carts
                       Container(
                           height: Dimensions.heigth100 * 3.1,
                           padding: EdgeInsets.symmetric(
@@ -80,16 +83,21 @@ class _BodyHomePageState extends State<BodyHomePage> {
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return ProductCardWidget(
+                                index: int.parse(controller
+                                        .discountsList[index].productId
+                                        .toString()) -
+                                    1,
                                 namePro:
-                                    "${controller.discountsList[index]["product_name"]}",
+                                    "${controller.discountsList[index].productName}",
                                 markPro: "SDA",
                                 pricePro:
-                                    "${controller.discountsList[index]["product_price"]}",
+                                    "${controller.discountsList[index].productPrice}",
                                 imgPro:
-                                    "${AppConstants.ASSETS_PRODUCTS + controller.discountsList[index]["product_image"]}",
+                                    "${AppConstants.ASSETS_PRODUCTS + controller.discountsList[index].productImage.toString()}",
                                 ispromo: true,
-                                promo: controller.discountsList[index]
-                                    ["product_promo"],
+                                promo: controller
+                                    .discountsList[index].productPromo
+                                    .toString(),
                               );
                             },
                             separatorBuilder: (context, index) => Padding(
@@ -116,7 +124,7 @@ class _BodyHomePageState extends State<BodyHomePage> {
             ],
           ),
 
-          // section laptops carts
+          // section All products carts
           GetBuilder<ProductsController>(
               builder: ((controller) => Container(
                   height: Dimensions.heigth100 * 3.1,
@@ -126,13 +134,17 @@ class _BodyHomePageState extends State<BodyHomePage> {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return ProductCardWidget(
+                        index: int.parse(controller
+                                .productsList[index].productId
+                                .toString()) -
+                            1,
                         namePro:
-                            "${controller.productsList[index]["product_name"]}",
+                            "${controller.productsList[index].productName}",
                         markPro: "SDA",
                         pricePro:
-                            "${controller.productsList[index]["product_price"]}",
+                            "${controller.productsList[index].productPrice}",
                         imgPro:
-                            "${AppConstants.ASSETS_PRODUCTS + controller.productsList[index]["product_image"]}",
+                            "${AppConstants.ASSETS_PRODUCTS + controller.productsList[index].productImage.toString()}",
                       );
                     },
                     separatorBuilder: (context, index) => Padding(
@@ -148,7 +160,7 @@ class _BodyHomePageState extends State<BodyHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               BigTextWidget(
-                text: "PC",
+                text: "Your Favorite",
                 fontWeight: FontWeight.w800,
                 size: 22,
               ),
@@ -163,10 +175,13 @@ class _BodyHomePageState extends State<BodyHomePage> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return ProductCardWidget(
-                        namePro: "name of product",
-                        markPro: "Appel",
-                        pricePro: "133",
-                        imgPro: "assets/image/headphone.png");
+                      index: index,
+                      namePro: "name of product",
+                      markPro: "Appel",
+                      pricePro: "133",
+                      imgPro: "assets/image/headphone.png",
+                      favorite: true,
+                    );
                   },
                   separatorBuilder: (context, index) => Padding(
                       padding: EdgeInsets.symmetric(

@@ -1,30 +1,4 @@
 class ProductModel {
-  String? status;
-  List<Products>? products;
-
-  ProductModel({this.status, this.products});
-
-  ProductModel.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
-    if (json['products'] != null) {
-      products = <Products>[];
-      json['products'].forEach((v) {
-        products!.add(new Products.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    if (this.products != null) {
-      data['products'] = this.products!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Products {
   int? productId;
   String? productName;
   String? productDesc;
@@ -33,11 +7,11 @@ class Products {
   String? productActive;
   String? productPromo;
   String? productDatetime;
-  int? productCat;
+  String? productCat;
   String? productImage2;
   String? productImage3;
 
-  Products(
+  ProductModel(
       {this.productId,
       this.productName,
       this.productDesc,
@@ -50,7 +24,7 @@ class Products {
       this.productImage2,
       this.productImage3});
 
-  Products.fromJson(Map<String, dynamic> json) {
+  ProductModel.fromJson(Map<String, dynamic> json) {
     productId = json['product_id'];
     productName = json['product_name'];
     productDesc = json['product_desc'];
