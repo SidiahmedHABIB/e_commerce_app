@@ -3,12 +3,14 @@ import 'package:e_commerce_app/controllers/categories_controller.dart';
 import 'package:e_commerce_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../controllers/products_controller.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text_widget.dart';
 import '../../widgets/horizon_card_widget.dart';
+import '../cart.page/cart_page.dart';
 
 class CategoriesPage extends StatelessWidget {
   int pageId;
@@ -17,10 +19,11 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var categories = Get.find<CategoriesController>().categoriesList[pageId];
+    var categories =
+        Get.find<CategoriesController>().categoriesList[pageId - 1];
     var categoriesByIndexList = Get.find<CategoriesController>()
-        .getCategoriesByIndexList(pageId.toString());
-
+        .getCategoriesByIndexList((pageId).toString());
+    print(pageId);
     return Scaffold(
       body: Column(children: [
         // header
@@ -34,15 +37,52 @@ class CategoriesPage extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             GestureDetector(
                 onTap: () => Get.toNamed(RouteHelper.getInitial()),
-                child: const Icon(Icons.arrow_back_ios)),
-            BigTextWidget(text: "Categories $pageId "),
-            AppIcon(
-              icon: Icons.shopping_cart_outlined,
-              backgroundcolor: AppColors.mailnColor,
-              iconColor: Colors.white,
-              size: 40,
-              iconsize: 20,
-            )
+                child: const AppIcon(
+                  icon: Icons.arrow_back_ios,
+                  backgroundcolor: Colors.white10,
+                  iconsize: 25,
+                  iconColor: Colors.black,
+                )),
+            BigTextWidget(text: "${categories.categoriesName} "),
+            GetBuilder<ProductsController>(builder: ((controller) {
+              return GestureDetector(
+                  onTap: () => Get.to(CartPage()),
+                  child: Stack(
+                    children: [
+                      AppIcon(
+                        icon: Icons.shopping_cart_outlined,
+                        backgroundcolor: AppColors.mailnColor,
+                        iconColor: Colors.white,
+                        size: 40,
+                        iconsize: 20,
+                      ),
+
+                      // controller.totalItems -------------------
+                      controller.totalItems >= 1
+                          ? Positioned(
+                              right: 0,
+                              top: 0,
+                              child: Icon(
+                                Icons.circle,
+                                size: 24,
+                                color: Colors.white,
+                              ))
+                          : Container(),
+                      // controller.totalItems---------------------
+                      controller.totalItems >= 1
+                          ? Positioned(
+                              right: 6,
+                              top: 4,
+                              child: BigTextWidget(
+                                // text: controller.totalItems.toString(), -------------------
+                                text: controller.totalItems.toString(),
+                                size: 13,
+                                color: AppColors.mailnColor,
+                              ))
+                          : Container()
+                    ],
+                  ));
+            }))
           ]),
         ),
         SizedBox(height: Dimensions.heigth10),
@@ -78,33 +118,36 @@ class CategoriesPage extends StatelessWidget {
         ),
         // section list of products
         GetBuilder<CategoriesController>(builder: (controller) {
-          return Expanded(
-            child: Container(
-              child: ListView.separated(
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: controller.categoriesByIndexList.length,
-                itemBuilder: ((context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      // Get.toNamed(RouteHelper.getRecommendedFood(index));
-                    },
-                    child: HorizonCardWidget(
-                      name: controller.categoriesByIndexList[index].productName
-                          .toString(),
-                      price: controller
-                          .categoriesByIndexList[index].productPrice
-                          .toString(),
-                      img:
-                          "${AppConstants.ASSETS_PRODUCTS + controller.categoriesByIndexList[index].productImage.toString()}",
+          return controller.isloaded == true
+              ? Expanded(
+                  child: ListView.separated(
+                    scrollDirection: Axis.vertical,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: controller.categoriesByIndexList.length,
+                    itemBuilder: ((context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          // Get.toNamed(RouteHelper.getRecommendedFood(index));
+                        },
+                        child: HorizonCardWidget(
+                          name: controller
+                              .categoriesByIndexList[index].productName
+                              .toString(),
+                          price: controller
+                              .categoriesByIndexList[index].productPrice
+                              .toString(),
+                          img:
+                              "${AppConstants.ASSETS_PRODUCTS + controller.categoriesByIndexList[index].productImage.toString()}",
+                        ),
+                      );
+                    }),
+                    separatorBuilder: (BuildContext context, int index) =>
+                        SizedBox(
+                      height: Dimensions.heigth10,
                     ),
-                  );
-                }),
-                separatorBuilder: (BuildContext context, int index) => SizedBox(
-                  height: Dimensions.heigth10,
-                ),
-              ),
-            ),
-          );
+                  ),
+                )
+              : Text("is loading");
         })
       ]),
     );

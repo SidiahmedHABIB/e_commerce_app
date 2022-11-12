@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/controllers/cart_controller.dart';
 import 'package:e_commerce_app/controllers/categories_controller.dart';
 import 'package:e_commerce_app/controllers/discount_controller.dart';
 import 'package:e_commerce_app/controllers/products_controller.dart';
@@ -11,6 +10,5 @@ class MainBindings implements Bindings {
     Get.put(CategoriesController());
     Get.put(ProductsController());
     Get.put(DiscountController());
-    Get.put(CartController());
   }
 }

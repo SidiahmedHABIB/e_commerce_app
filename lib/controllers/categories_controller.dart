@@ -14,7 +14,6 @@ class CategoriesController extends GetxController {
     // TODO: implement onInit
     super.onInit();
     getCategoriesList();
-    getCategoriesByIndexList("1");
   }
 
   bool _isloaded = false;
@@ -37,13 +36,16 @@ class CategoriesController extends GetxController {
   Future<List<ProductModel>> getCategoriesByIndexList(String index) async {
     var response = await categoriesRepo.getCategoriesByIndex(index);
     if (response['status'] == "success") {
+      categoriesByIndexList = [];
+
       response['products'].forEach((v) {
         categoriesByIndexList.add(ProductModel.fromJson(v));
       });
       _isloaded = true;
-      return categoriesByIndexList;
       update();
+      return categoriesByIndexList;
     } else {
+      update();
       return categoriesByIndexList;
     }
   }

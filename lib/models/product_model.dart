@@ -3,7 +3,7 @@ class ProductModel {
   String? productName;
   String? productDesc;
   String? productImage;
-  String? productPrice;
+  int? productPrice;
   String? productActive;
   String? productPromo;
   String? productDatetime;

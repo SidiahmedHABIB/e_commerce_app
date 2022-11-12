@@ -23,4 +23,8 @@ class AppConstants {
 
 // discount
   static const String DISCOUNT_URI = "$BASE_URL/discount/get_discount.php";
+
+//SharedPreferences
+  static const String CART_LIST = "Cart-List";
+  static const String CART_HISTORY_LIST = "Cart-history-List";
 }

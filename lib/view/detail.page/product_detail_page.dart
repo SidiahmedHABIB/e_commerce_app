@@ -3,6 +3,7 @@ import 'package:e_commerce_app/constant/app_constants.dart';
 import 'package:e_commerce_app/routes/route_helper.dart';
 import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/utils/dimensions.dart';
+import 'package:e_commerce_app/view/cart.page/cart_page.dart';
 import 'package:e_commerce_app/widgets/app_icon.dart';
 import 'package:e_commerce_app/widgets/big_text_widget.dart';
 import 'package:e_commerce_app/widgets/small_text.dart';
@@ -37,6 +38,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   Widget build(BuildContext context) {
     var product = Get.find<ProductsController>().productsList[pageId];
+    Get.find<ProductsController>().initProduct(product);
     List<String> imgs = [
       product.productImage.toString(),
       product.productImage2.toString(),
@@ -58,15 +60,52 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 children: [
                   GestureDetector(
                       onTap: () => Get.toNamed(RouteHelper.getInitial()),
-                      child: const Icon(Icons.arrow_back_ios)),
+                      child: const AppIcon(
+                        icon: Icons.arrow_back_ios,
+                        backgroundcolor: Colors.white10,
+                        iconsize: 25,
+                        iconColor: Colors.black,
+                      )),
                   BigTextWidget(text: "Details Products"),
-                  AppIcon(
-                    icon: Icons.shopping_cart_outlined,
-                    backgroundcolor: AppColors.mailnColor,
-                    iconColor: Colors.white,
-                    size: 40,
-                    iconsize: 20,
-                  )
+                  GetBuilder<ProductsController>(builder: ((controller) {
+                    return GestureDetector(
+                        onTap: () => Get.to(CartPage()),
+                        child: Stack(
+                          children: [
+                            AppIcon(
+                              icon: Icons.shopping_cart_outlined,
+                              backgroundcolor: AppColors.mailnColor,
+                              iconColor: Colors.white,
+                              size: 40,
+                              iconsize: 20,
+                            ),
+
+                            // controller.totalItems -------------------
+                            controller.totalItems >= 1
+                                ? Positioned(
+                                    right: 0,
+                                    top: 0,
+                                    child: Icon(
+                                      Icons.circle,
+                                      size: 24,
+                                      color: Colors.white,
+                                    ))
+                                : Container(),
+                            // controller.totalItems---------------------
+                            controller.totalItems >= 1
+                                ? Positioned(
+                                    right: 6,
+                                    top: 4,
+                                    child: BigTextWidget(
+                                      // text: controller.totalItems.toString(), -------------------
+                                      text: controller.totalItems.toString(),
+                                      size: 13,
+                                      color: AppColors.mailnColor,
+                                    ))
+                                : Container()
+                          ],
+                        ));
+                  }))
                 ]),
           ),
 
@@ -293,19 +332,22 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               ),
                             ],
                           ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: Dimensions.heigth10,
-                                horizontal: Dimensions.width20),
-                            child: BigTextWidget(
-                              text: "Add to cart",
-                              size: Dimensions.heigth20,
-                              color: Colors.white,
+                          GestureDetector(
+                            onTap: () => controller.addItem(product),
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: Dimensions.heigth10,
+                                  horizontal: Dimensions.width20),
+                              child: BigTextWidget(
+                                text: "Add to cart",
+                                size: Dimensions.heigth20,
+                                color: Colors.white,
+                              ),
+                              decoration: BoxDecoration(
+                                  color: AppColors.mailnColor,
+                                  borderRadius: BorderRadius.circular(
+                                      Dimensions.heigth10)),
                             ),
-                            decoration: BoxDecoration(
-                                color: AppColors.mailnColor,
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.heigth10)),
                           )
                         ],
                       )))

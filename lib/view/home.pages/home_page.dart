@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/view/cart.page/cart_page.dart';
 import 'package:e_commerce_app/view/home.pages/main_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   List pages = [
     const MainHomePage(),
     Container(child: Center(child: Text("Next page"))),
-    Container(child: Center(child: Text("Next next  page"))),
+    CartPage(),
     Container(child: Center(child: Text("Next next next page"))),
   ];
 
@@ -43,12 +44,12 @@ class _HomePageState extends State<HomePage> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.archivebox),
-              label: 'Archive',
+              icon: Icon(CupertinoIcons.search),
+              label: 'Search',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'History',
+              icon: Icon(Icons.shopping_cart_outlined),
+              label: 'Cart',
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.person),
