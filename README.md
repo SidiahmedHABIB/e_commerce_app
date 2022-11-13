@@ -1,6 +1,5 @@
 # e_commerce_app
 
-## Student Page 
 ![portifolio2](https://user-images.githubusercontent.com/91164878/201549849-76f544e1-4085-4928-a6e0-a133693ad1af.jpg)
 
 E-commerce appliction  for managing and organizing products with categoties
