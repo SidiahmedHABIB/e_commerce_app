@@ -1,16 +1,46 @@
 # e_commerce_app
 
-A new Flutter project.
+## Student Page 
+![portifolio2](https://user-images.githubusercontent.com/91164878/201549849-76f544e1-4085-4928-a6e0-a133693ad1af.jpg)
 
-## Getting Started
+E-commerce appliction  for managing and organizing products with categoties
 
-This project is a starting point for a Flutter application.
+## Technologies
 
-A few resources to get you started if this is your first Flutter project:
+### Frontend
+- Flutter 
+- Getx for state management
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Backend
+- Rest APIs
+- PHP
+- MySQL
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+## Features 
+
+### For Users 
+- [x] Signup
+- [x] Signin
+- [x] Add products to cart 
+- [x] View Profile Page
+- [x] Performance friendly 
+- [x] Responsive
+
+## Libraries
+
+### Getx
+- state management
+- route management
+- integrate dependency injection
+### http
+- fetch data from the DataBase
+### sharepreference
+- storing data key-value pair in the application 
+
+
+## My Links
+
+[![FaceBook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/habib.sidiahmed.5)   [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sidi-ahmed-habib-18163220a/)

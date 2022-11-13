@@ -100,7 +100,7 @@ class AccountPage extends StatelessWidget {
                     ),
                     bigText: BigTextWidget(
                       text: sharedPreferences.getString("email").toString(),
-                      size: 22,
+                      size: 20,
                     ),
                   ),
                   // location
