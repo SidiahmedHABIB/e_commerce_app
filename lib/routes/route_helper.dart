@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/view/categories.page/categories_page.dart';
 import 'package:e_commerce_app/view/detail.page/product_detail_page.dart';
+import 'package:e_commerce_app/view/splash.page/splash.page.dart';
 import 'package:get/get.dart';
 
 import '../main.dart';
@@ -20,10 +21,10 @@ class RouteHelper {
       '$categoriesPage?pageId=$pageId';
   static String getCartPage() => '$cartPage';
   static List<GetPage> routes = [
-    // GetPage(
-    //   name: splashScreen,
-    //   // page: () => SplashScreen(),
-    // ),
+    GetPage(
+      name: splashScreen,
+      page: () => SplashPage(),
+    ),
 
     GetPage(
       name: initial,
