@@ -22,6 +22,11 @@ class AccountWidget extends StatelessWidget {
           appIcon,
           SizedBox(width: 20),
           bigText,
+          Spacer(),
+          Icon(
+            Icons.arrow_right_rounded,
+            size: 35,
+          )
         ],
       ),
       decoration: BoxDecoration(color: Colors.white, boxShadow: [

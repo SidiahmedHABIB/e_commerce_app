@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/constant/app_constants.dart';
 import 'package:e_commerce_app/controllers/categories_controller.dart';
+import 'package:e_commerce_app/view/search.page/search_page.dart';
 import 'package:e_commerce_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -87,34 +88,37 @@ class CategoriesPage extends StatelessWidget {
         ),
         SizedBox(height: Dimensions.heigth10),
         // section research
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: Dimensions.width35),
-          padding: EdgeInsets.symmetric(horizontal: Dimensions.width20),
-          width: double.maxFinite,
-          height: Dimensions.heigth25 * 2,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: AppColors.whiteColor,
-            boxShadow: [
-              BoxShadow(
+        GestureDetector(
+          onTap: () => Get.to(SearchPage()),
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: Dimensions.width35),
+            padding: EdgeInsets.symmetric(horizontal: Dimensions.width20),
+            width: double.maxFinite,
+            height: Dimensions.heigth25 * 2,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: AppColors.whiteColor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black38,
+                  blurRadius: 5,
+                  offset: Offset(0, 0),
+                ),
+              ],
+            ),
+            child: Row(children: [
+              Icon(
+                Icons.search,
+                size: 30,
                 color: Colors.black38,
-                blurRadius: 5,
-                offset: Offset(0, 0),
               ),
-            ],
+              SizedBox(width: Dimensions.width10),
+              SmallText(
+                text: "Search",
+                size: 20,
+              ),
+            ]),
           ),
-          child: Row(children: [
-            Icon(
-              Icons.search,
-              size: 30,
-              color: Colors.black38,
-            ),
-            SizedBox(width: Dimensions.width10),
-            SmallText(
-              text: "Search",
-              size: 20,
-            ),
-          ]),
         ),
         // section list of products
         GetBuilder<CategoriesController>(builder: (controller) {

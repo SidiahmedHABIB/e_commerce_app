@@ -2,6 +2,7 @@ import 'package:e_commerce_app/view/categories.page/categories_page.dart';
 import 'package:e_commerce_app/view/home.pages/body_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../constant/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text_widget.dart';
@@ -30,7 +31,7 @@ class _MainHomePageState extends State<MainHomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  "assets/image/lolo1.png",
+                  "${AppConstants.ASSETS_IMAGES}logo2.png",
                   height: Dimensions.heigth25 * 2,
                 ),
                 Container(

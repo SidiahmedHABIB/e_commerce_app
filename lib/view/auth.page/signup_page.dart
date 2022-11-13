@@ -4,6 +4,7 @@ import 'package:e_commerce_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../constant/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../widgets/big_text_widget.dart';
 import '../../widgets/show_snackbar_widget.dart';
@@ -56,7 +57,7 @@ class SignUpPage extends StatelessWidget {
             width: double.maxFinite,
             padding: EdgeInsets.symmetric(horizontal: Dimensions.width30),
             child: Column(children: [
-              SizedBox(height: Dimensions.heigth45),
+              SizedBox(height: Dimensions.heigth30),
               GestureDetector(
                 onTap: () => Get.off(SignInPage()),
                 child: Row(
@@ -75,12 +76,10 @@ class SignUpPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: Dimensions.heigth45),
               Container(
-                width: 120 * 2.5,
-                child: Image.asset("assets/image/lolo1.png"),
+                width: 120 * 2,
+                child: Image.asset("${AppConstants.ASSETS_IMAGES}logo1.png"),
               ),
-              SizedBox(height: 45),
               Row(
                 children: [
                   BigTextWidget(

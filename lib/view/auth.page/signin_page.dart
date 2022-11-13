@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../constant/app_constants.dart';
 import '../../controllers/auth_controller.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
@@ -50,12 +51,11 @@ class SignInPage extends StatelessWidget {
             width: double.maxFinite,
             padding: EdgeInsets.symmetric(horizontal: Dimensions.width30),
             child: Column(children: [
-              SizedBox(height: Dimensions.heigth45 * 2),
+              SizedBox(height: Dimensions.heigth20),
               Container(
                 width: 120 * 2.5,
-                child: Image.asset("assets/image/lolo1.png"),
+                child: Image.asset("${AppConstants.ASSETS_IMAGES}logo1.png"),
               ),
-              SizedBox(height: 45),
               Row(
                 children: [
                   BigTextWidget(

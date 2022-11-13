@@ -179,7 +179,7 @@ class _BodyHomePageState extends State<BodyHomePage> {
                       namePro: "name of product",
                       markPro: "Appel",
                       pricePro: "133",
-                      imgPro: "assets/image/headphone.png",
+                      imgPro: "${AppConstants.ASSETS_IMAGES}headphone.png",
                       favorite: true,
                     );
                   },
@@ -196,7 +196,6 @@ class _BodyHomePageState extends State<BodyHomePage> {
           ),
           SizedBox(height: 10),
           GestureDetector(
-            onTap: () => authController.lougOut(),
             child: SmallText(
               text: "sidiahmedhaibib@gmail.com",
               size: 15,

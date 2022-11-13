@@ -18,11 +18,21 @@ class AppConstants {
   static const String PRODUCTS_URI = "$BASE_URL/products/get_products.php";
 
 // assets path
+  static const String ASSETS_IMAGES = "assets/upload/image/";
   static const String ASSETS_PRODUCTS = "assets/upload/products/";
   static const String ASSETS_CATEGORIES = "assets/upload/categories/";
 
 // discount
   static const String DISCOUNT_URI = "$BASE_URL/discount/get_discount.php";
+
+// favorite
+  static const String FAVORITE_GET_URI = "$BASE_URL/favorite/get_favorite.php";
+  static const String FAVORITE_GET_PRODUCT_URI =
+      "$BASE_URL/favorite/get_favorite_products.php";
+  static const String FAVORITE_POST_URI =
+      "$BASE_URL/favorite/post_favorite.php";
+  static const String FAVORITE_DELETE_URI =
+      "$BASE_URL/favorite/delete_favorite.php";
 
 //SharedPreferences
   static const String CART_LIST = "Cart-List";

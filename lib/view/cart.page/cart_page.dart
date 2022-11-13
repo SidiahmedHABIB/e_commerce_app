@@ -24,6 +24,7 @@ class CartPage extends StatelessWidget {
               right: Dimensions.width20,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -35,6 +36,11 @@ class CartPage extends StatelessWidget {
                       backgroundcolor: AppColors.mailnColor,
                       iconsize: Dimensions.heigth20,
                     ),
+                  ),
+                  BigTextWidget(
+                    text: "Cart Page",
+                    size: 25,
+                    color: AppColors.mailnColor,
                   ),
                   AppIcon(
                     icon: Icons.shopping_cart_outlined,
@@ -184,7 +190,7 @@ class CartPage extends StatelessWidget {
             bottom: Dimensions.heigth20,
           ),
           decoration: BoxDecoration(
-            color: AppColors.buttonbackgroundColor,
+            color: AppColors.whiteColor,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(Dimensions.heigth40),
               topLeft: Radius.circular(Dimensions.heigth40),

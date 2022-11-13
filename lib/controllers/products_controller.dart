@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../constant/app_constants.dart';
 import '../data/repository/products_repo.dart';
 import '../main.dart';
-import '../models/cartModel.dart';
+import '../models/cart_Model.dart';
 import '../utils/colors.dart';
 
 class ProductsController extends GetxController {

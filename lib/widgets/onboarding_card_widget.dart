@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import '../constant/app_constants.dart';
 import '../utils/colors.dart';
 import '../utils/dimensions.dart';
 import 'big_text_widget.dart';
@@ -20,19 +21,19 @@ class OnboardingModel {
 
 List<OnboardingModel> boarding = [
   OnboardingModel(
-    imagebr: "assets/image/onpoard1.png",
+    imagebr: "${AppConstants.ASSETS_IMAGES}onpoard1.png",
     title: "Easy Shopping",
     smalltitleP1: "The best Application to buy online ",
     smalltitleP2: "products of Home Appliances",
   ),
   OnboardingModel(
-    imagebr: "assets/image/onpoard2.png",
+    imagebr: "${AppConstants.ASSETS_IMAGES}onpoard2.png",
     title: "Secure Payment",
     smalltitleP1: "The best Application to buy online ",
     smalltitleP2: "products of Home Appliances",
   ),
   OnboardingModel(
-    imagebr: "assets/image/onpoard3.png",
+    imagebr: "${AppConstants.ASSETS_IMAGES}onpoard3.png",
     title: "Quick Delivery",
     smalltitleP1: "The best Application to buy online ",
     smalltitleP2: "products of Home Appliances",

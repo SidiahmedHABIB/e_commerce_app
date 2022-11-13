@@ -1,5 +1,7 @@
+import 'package:e_commerce_app/view/account.page/account_page.dart';
 import 'package:e_commerce_app/view/cart.page/cart_page.dart';
 import 'package:e_commerce_app/view/home.pages/main_home_page.dart';
+import 'package:e_commerce_app/view/search.page/search_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +18,9 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   List pages = [
     const MainHomePage(),
-    Container(child: Center(child: Text("Next page"))),
-    CartPage(),
-    Container(child: Center(child: Text("Next next next page"))),
+    const SearchPage(),
+    const CartPage(),
+    const AccountPage(),
   ];
 
   void onTopNav(int index) {
