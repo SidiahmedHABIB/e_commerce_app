@@ -28,7 +28,7 @@ E-commerce appliction  for managing and organizing products with categoties
 - [x] Performance friendly 
 - [x] Responsive
 
-## Libraries
+## Packages
 
 ### Getx
 - state management
